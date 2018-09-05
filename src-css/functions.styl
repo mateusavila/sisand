@@ -1,0 +1,146 @@
+// Functions.styl.
+// Aqui vão as funções mais básicas para agilizar o desenvolvimento de um website.
+
+
+// logo: retorna a logo no site, bastando editar a largura e a altura.
+logo(w = 100px, h = 100px)
+	float left
+	display block
+	width w * 1px
+	height h * 1px
+	background url('../img/logo.png')
+
+// define o tamanho e a cor do hr.
+hrcolor(color)
+	background color
+	height 1px
+	color color
+	border none
+
+
+
+// centraliza uma div num contexto, usando método antigo.
+centerDiv(w = 100, h = 100)
+	width w * 1px
+	height h * 1px
+	position absolute
+	top 50%
+	left 50%
+	margin-left ((w / 2) * -1px)
+	margin-top ((h / 2) * -1px)
+
+// define uma transição.
+transitions(time = .5s, itens = all, easing = ease-out)
+	transition itens time easing;
+
+
+// cria uma div que sobrepõe uma outra div
+backgroundOver(color, w = 100%, h = 100%)
+	position absolute
+	width w
+	top 0
+	left 0
+	height h
+	background color
+	z-index -2
+	opacity 0
+// adicionar este código quando for o hover da imagem
+backgroundOverHover()
+	opacity 1
+	z-index 100
+
+centerModern(w = 100%, h = 50px)
+	position absolute
+	top 0
+	left 0
+	right 0
+	bottom 0
+	margin auto
+	width w * 1px
+	height h * 1px
+
+centerLine(w = 100px, h = 50px)
+	height h * 1px
+	line-height h * 1px
+	width w * 1px
+
+centerLineVert(h = 50px)
+	height h * 1px
+	line-height h * 1px
+
+box(w = 100%)
+	width w
+	float left
+	clear both
+	position relative
+
+boxCenter(w = 99%, mt = 0, mb = 0)
+	float none
+	margin mt auto mb
+	display block
+	width w
+
+btn(w = 200px, h = 50px, lh = 50px)
+	width w * 1px
+	height h * 1px
+	line-height lh * 1px
+	display block
+	text-align center
+
+centerPerfect()
+	position absolute
+	top 50%
+	left 50%
+	transform translate(-50%, -50%)
+	
+justifyLine()
+	text-align justify
+	font-size 0
+	&:after
+		content ''
+		width 100%
+		display inline-block
+		pointer-event none
+
+
+placeholderColor(placeholdercolor, maincolor)
+	color maincolor
+	&::-webkit-input-placeholder
+		color placeholdercolor
+	&:-moz-placeholder
+		color placeholdercolor
+		opacity 1
+	&::-moz-placeholder
+		color placeholdercolor
+		opacity 1
+	&:-ms-input-placeholder
+		color placeholdercolor
+
+showActiveHover(time = .2s)
+	visibility hidden
+	opacity 0
+	transitions(time)
+	&:hover
+		opacity 1
+		visibility visible
+		transitions(time)
+showActive(time = .2s)
+	visibility hidden
+	opacity 0
+	transitions(time)
+	&.active
+		opacity 1
+		visibility visible
+		transitions(time)
+// fillArea - preenche a área da div
+filler()
+	position absolute
+	top 0
+	left 0
+	width 100%
+	height 100%
+
+bgCover()
+	background-repeat no-repeat
+	background-position center center
+	background-size cover
